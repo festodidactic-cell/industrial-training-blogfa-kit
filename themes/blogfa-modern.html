@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+<meta name="google-site-verification" content="WTpamh5yg30E-SthByGTQGKA-ZZzcbiFVjN0QFrq_Iw" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><-BlogAndPostTitle-></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-language" content="fa">
+<meta name="description" content="<-BlogMetaDescription->">
+<meta name="generator" content="blogfa.com">
+<meta property="og:title" content="<-AutoPageTitle->">
+<meta property="og:site_name" content="<-BlogTitle->">
+<meta property="og:description" content="<-BlogMetaDescription->">
+<link rel="alternate" type="application/rss+xml" title="<-BlogTitle->" href="<-BlogXmlLink->" />
+
+<!-- فونت فارسی مدرن Vazirmatn -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style type="text/css">
+/* ============================================
+   متغیرهای طراحی - کانسپت فستو
+   ============================================ */
+:root {
+    --festo-blue: #0091DC;
+    --festo-blue-dark: #006fa8;
+    --festo-blue-light: #e6f4fc;
+    --festo-gradient: linear-gradient(135deg, #0091DC 0%, #00c3ff 100%);
+    --festo-gradient-dark: linear-gradient(135deg, #006fa8 0%, #0091DC 100%);
+    
+    --text-primary: #1a2332;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    
+    --bg-body: #f5f7fa;
+    --bg-card: #ffffff;
+    --bg-soft: #f8fafc;
+    
+    --border-light: #e2e8f0;
+    --border-soft: #edf2f7;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 105, 168, 0.06);
+    --shadow-md: 0 4px 20px rgba(0, 105, 168, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 105, 168, 0.12);
+    --shadow-hover: 0 15px 50px rgba(0, 145, 220, 0.18);
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   ریست و تنظیمات پایه
+   ============================================ */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background: var(--bg-body);
+    background-image: 
+        radial-gradient(at 10% 0%, rgba(0, 145, 220, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 100%, rgba(0, 195, 255, 0.04) 0px, transparent 50%);
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--festo-blue);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--festo-blue-dark);
+}
+
+/* ============================================
+   کلاس مخفی‌سازی SEO (نامرئی برای کاربر، قابل خواندن برای گوگل)
+   ============================================ */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* ============================================
+   ساختار کلی
+   ============================================ */
+#wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   هدر اسلایدر
+   ============================================ */
+#headerbox {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto 30px auto;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f4f8;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 830 / 300;
+}
+
+#premium-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    touch-action: pan-y;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: 1;
+}
+
+.slider-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    opacity: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#premium-slider:hover .slider-nav {
+    opacity: 1;
+}
+
+.slider-nav.btn-next { right: 20px; }
+.slider-nav.btn-prev { left: 20px; }
+
+.slider-nav:hover {
+    background: var(--festo-blue);
+    border-color: var(--festo-blue);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 145, 220, 0.5);
+}
+
+.slider-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 10;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.slider-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--festo-gradient);
+    box-shadow: 0 0 12px rgba(0, 145, 220, 0.8);
+}
+
+/* ============================================
+   نوار ناوبری اصلی (ثابت)
+   ============================================ */
+.main-nav {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    position: relative;
+    top: auto;
+}
+
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 14.5px;
+    border-radius: 10px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.main-nav a:hover {
+    background: var(--festo-blue-light);
+    color: var(--festo-blue-dark);
+    transform: translateY(-2px);
+}
+
+.main-nav a.primary-link {
+    background: var(--festo-gradient);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 145, 220, 0.3);
+}
+
+.main-nav a.primary-link:hover {
+    background: var(--festo-gradient-dark);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 145, 220, 0.45);
+}
+
+/* ============================================
+   چیدمان دو ستونه
+   ============================================ */
+#container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+    align-items: start;
+}
+
+#content {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ============================================
+   کارت‌های پست
+   ============================================ */
+.post {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 35px 40px;
+    margin-bottom: 30px;
+    transition: var(--transition);
+    border: 1px solid var(--border-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.post::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--festo-gradient);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.post:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+.post:hover::before {
+    opacity: 1;
+}
+
+.post h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--border-light);
+    line-height: 1.5;
+    position: relative;
+}
+
+.post h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--festo-gradient);
+}
+
+.post h2 a {
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.post h2 a:hover {
+    color: var(--festo-blue);
+}
+
+.postbody {
+    padding: 0;
+}
+
+.postcontent {
+    font-size: 16.5px;
+    line-height: 1.95;
+    color: var(--text-secondary);
+    text-align: justify;
+}
+
+.postcontent p {
+    margin: 0 0 18px 0;
+}
+
+/* استایل تصاویر محتوا */
+.postcontent img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    border-radius: var(--radius-sm);
+    margin: 20px 0;
+    box-shadow: var(--shadow-sm);
+    display: block;
+}
+
+.postcontent h3, .postcontent h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 28px 0 14px 0;
+}
+
+.postcontent h3 {
+    font-size: 20px;
+    padding-right: 14px;
+    border-right: 4px solid var(--festo-blue);
+}
+
+.postcontent a {
+    color: var(--festo-blue);
+    font-weight: 500;
+    border-bottom: 1px dashed var(--festo-blue);
+    transition: var(--transition);
+}
+
+.postcontent a:hover {
+    color: var(--festo-blue-dark);
+    border-bottom-style: solid;
+}
+
+/* لینک ادامه نوشته */
+.postbody a[href*="post-"],
+.postbody > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: var(--festo-blue-light);
+    color: var(--festo-blue-dark) !important;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none !important;
+    transition: var(--transition);
+}
+
+.postbody a[href*="post-"]:hover,
+.postbody > a:hover {
+    background: var(--festo-gradient);
+    color: #fff !important;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 18px rgba(0, 145, 220, 0.3);
+}
+
+/* ============================================
+   سایدبار حرفه‌ای
+   ============================================ */
+#sidebar {
+    width: 100% !important;
+    float: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* پروفایل */
+.profile {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    background: var(--festo-gradient);
+    opacity: 0.12;
+}
+
+.profile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 8px 30px rgba(0, 145, 220, 0.25);
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.profile img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 145, 220, 0.35);
+}
+
+.profile b, .profile strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* باکس‌های سایدبار */
+.box, .menu {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-soft);
+    transition: var(--transition);
+}
+
+.box:hover, .menu:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.box h6, .menu h6 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-light);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.box h6::after, .menu h6::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--festo-gradient);
+}
+
+.box ul, .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.box li, .menu li {
+    margin: 0;
+    border-bottom: 1px dashed var(--border-soft);
+}
+
+.box li:last-child, .menu li:last-child {
+    border-bottom: none;
+}
+
+.box a, .menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.box a::before, .menu a::before {
+    content: '‹';
+    color: var(--festo-blue);
+    font-size: 18px;
+    font-weight: bold;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateX(5px);
+}
+
+.box a:hover, .menu a:hover {
+    background: var(--festo-blue-light);
+    color: var(--festo-blue-dark);
+    padding-right: 18px;
+}
+
+.box a:hover::before, .menu a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.box i {
+    font-style: normal;
+    background: var(--festo-blue-light);
+    color: var(--festo-blue-dark);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: auto;
+}
+
+.menu {
+    background: linear-gradient(135deg, rgba(0, 145, 220, 0.03) 0%, rgba(0, 195, 255, 0.03) 100%);
+    border: 1px solid rgba(0, 145, 220, 0.1);
+}
+
+.menu a {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   Clear Fix
+   ============================================ */
+.clear {
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+/* ============================================
+   ریسپانسیو - موبایل
+   ============================================ */
+@media (max-width: 968px) {
+    #container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    #sidebar {
+        order: 2;
+    }
+    
+    .post {
+        padding: 25px 22px;
+    }
+    
+    .post h2 {
+        font-size: 20px;
+    }
+    
+    .postcontent {
+        font-size: 15.5px;
+    }
+    
+    .main-nav {
+        padding: 8px;
+        gap: 4px;
+    }
+    
+    .main-nav a {
+        padding: 8px 14px;
+        font-size: 13.5px;
+    }
+}
+
+@media (max-width: 600px) {
+    #wrapper {
+        padding: 0 12px;
+    }
+    
+    #headerbox {
+        border-radius: var(--radius-md);
+        margin: 12px auto 20px auto;
+        aspect-ratio: 16 / 9;
+    }
+    
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        opacity: 0.85;
+    }
+    
+    .slider-nav.btn-next { right: 12px; }
+    .slider-nav.btn-prev { left: 12px; }
+    
+    .main-nav {
+        border-radius: var(--radius-sm);
+        margin-bottom: 20px;
+    }
+    
+    .main-nav a {
+        flex: 1 1 calc(50% - 4px);
+        justify-content: center;
+        padding: 9px 10px;
+        font-size: 13px;
+    }
+    
+    .post {
+        padding: 20px 18px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 20px;
+    }
+    
+    .post h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-bottom: 14px;
+    }
+    
+    .postcontent {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+    
+    .postcontent h3 {
+        font-size: 17px;
+    }
+    
+    .postcontent img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .box, .menu, .profile {
+        padding: 18px;
+        border-radius: var(--radius-sm);
+    }
+    
+    body {
+        font-size: 15.5px;
+    }
+}
+
+/* ============================================
+   انیمیشن ورود کارت‌ها
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post, .box, .menu, .profile, .main-nav {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.post:nth-child(1) { animation-delay: 0.05s; }
+.post:nth-child(2) { animation-delay: 0.1s; }
+.post:nth-child(3) { animation-delay: 0.15s; }
+
+/* ============================================
+   اسکرول‌بار سفارشی
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-soft);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--festo-gradient);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--festo-gradient-dark);
+}
+
+::selection {
+    background: var(--festo-blue);
+    color: #fff;
+}
+</style>
+
+<script src="https://theme.blogfa.com/public/theme.1.2.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+ try {
+  cmt_caption[0]="نظرات";
+  cmt_caption[1]="نظر بدهيد";
+  cmt_caption[2]="يک نظر";
+  cmt_caption[3]="نظر";
+  cmt_tagname="comment_";
+  cmt_blogid="<-BlogId->";
+  }
+  catch(e) {}
+</script>
+
+</head>
+
+<body>
+<div id="wrapper">
+
+<!-- هدر اسلایدر -->
+<div id="headerbox">
+    <div id="premium-slider">
+        <img id="slide-current" class="slider-img active" src="https://didactic.ir/Header00.jpg" alt="Festo Didactic Header">
+        <img id="slide-next" class="slider-img" src="" alt="Festo Didactic Header Next">
+        
+        <button class="slider-nav btn-next" id="btn-next" aria-label="تصویر بعدی">&#10094;</button>
+        <button class="slider-nav btn-prev" id="btn-prev" aria-label="تصویر قبلی">&#10095;</button>
+        
+        <div class="slider-progress">
+            <div class="slider-progress-bar" id="slider-progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+<!-- منوی اصلی -->
+<nav class="main-nav">
+    <a href="/" class="primary-link">🏠 خانه</a>
+    <a href="https://festo.blogfa.com/page/pneumatics">💨 پنوماتیک</a>
+    <a href="https://festo.blogfa.com/page/hydraulics">⚙️ هیدرولیک</a>
+    <a href="https://festo.blogfa.com/page/plcs">🔌 PLC</a>
+    <a href="https://festo.blogfa.com/page/contactus">📞 تماس با ما</a>
+    <a rel="nofollow" href="http://didactic.ir" target="_blank">🌐 وبسایت رسمی</a>
+    <a rel="nofollow" href="https://aiaciran.org" target="_blank">🤝 انجمن اتوماسیون</a>
+</nav>
+
+<div id="container">
+<div id="content">
+<BLOGFA>
+<div class="post">
+<h2><a href="<-PostLink->"><-PostTitle-></a></h2>
+<div class="postbody">
+
+<div class="postcontent">
+ <-PostContent->
+ <div class="clear"></div>
+</div>
+
+ <BlogExtendedPost><a href="<-PostLink->">ادامه نوشته ←</a></BlogExtendedPost>
+
+</div>
+
+<!-- ============================================
+     بخش مخفی SEO برای برچسب‌های هر پست
+     (نامرئی برای کاربر - قابل خواندن برای گوگل)
+     ============================================ -->
+<div class="sr-only" itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="headline" content="<-PostTitle->">
+    <meta itemprop="datePublished" content="<-PostDate->">
+    <meta itemprop="author" content="<-PostAuthor->">
+    <BlogPostTagsBlock>
+        <meta itemprop="keywords" content="<BlogPostTags separator=", "><-TagName-></BlogPostTags>">
+    </BlogPostTagsBlock>
+</div>
+
+</div>
+</BLOGFA>
+
+</div>
+
+<!-- سایدبار -->
+<div id="sidebar">
+
+   <BlogProfile>
+    <div class="profile">
+     <BlogPhoto><img src="<-BlogPhotoLink->" alt="پروفایل"></BlogPhoto>
+     <-BlogAbout->
+    </div>
+   </BlogProfile>
+
+<div class="menu">
+    <h6>📌 منوی اصلی</h6>
+    <ul>
+        <li><a href="/">صفحه اصلی</a></li>
+        <BlogProfileLinkBlock><li><a href="<-BlogProfileLink->">پروفایل مدیر وبلاگ</a></li></BlogProfileLinkBlock>
+        <li><a rel="nofollow" href="https://festo.blogfa.com/page/contactus">تماس با ما</a></li>
+        <li><a rel="nofollow" href="http://didactic.ir" target="_blank">وبسایت رسمی فستو</a></li>
+        <li><a rel="nofollow" href="https://aiaciran.org" target="_blank">انجمن صنفی اتوماسیون صنعتی</a></li>
+    </ul>
+</div>
+
+<div class="menu">
+    <h6>📚 مقالات آموزشی</h6>
+    <ul>
+        <li><a rel="nofollow" href="https://festo.blogfa.com/page/pneumatics">پنوماتیک چیست؟</a></li>
+        <li><a rel="nofollow" href="https://festo.blogfa.com/page/hydraulics">هیدرولیک چیست؟</a></li>
+        <li><a rel="nofollow" href="https://festo.blogfa.com/page/plcs">PLC چیست؟</a></li>
+    </ul>
+</div>
+
+ <BlogLinkDumpBlock>
+    <div class="box">
+        <h6>🔗 پیوندهای روزانه</h6>
+        <ul>
+            <BlogLinkDump>
+                <li><a href="<-LinkUrl->" target="_blank" title="<-LinkDescription->"><-LinkTitle-></a></li>
+            </BlogLinkDump>
+            <li><a href="/links" onclick="return openlinks();">آرشیو پیوندهای روزانه</a></li>
+        </ul>
+    </div>
+ </BlogLinkDumpBlock>
+
+ <BlogCategoriesBlock>
+    <div class="box">
+        <h6>📂 آرشیو موضوعی</h6>
+        <ul>
+            <BlogCategories>
+                <li><a href="<-CategoryLink->"><-CategoryName-></a></li>
+            </BlogCategories>
+        </ul>
+    </div>
+</BlogCategoriesBlock>
+
+<BlogLinksBlock>
+    <div class="box">
+        <h6>🌐 پیوندها</h6>
+        <ul>
+            <BlogLinks>
+                <li><a href="<-LinkUrl->" target="_blank"><-LinkTitle-></a></li>
+            </BlogLinks>
+        </ul>
+    </div>
+</BlogLinksBlock>
+
+</div>
+
+<div class="clear"></div>
+</div>
+
+</div>
+
+<!-- ============================================
+     بخش مخفی SEO کلی سایت
+     ============================================ -->
+<div class="sr-only" role="complementary" aria-label="SEO Metadata">
+    <div itemscope itemtype="https://schema.org/Blog">
+        <meta itemprop="name" content="<-BlogTitle->">
+        <meta itemprop="description" content="<-BlogMetaDescription->">
+        <meta itemprop="url" content="<-BlogUrl->">
+        
+        <BlogTagsBlock>
+            <div itemprop="keywords">
+                <BlogTags separator=", "><-TagName-></BlogTags>
+            </div>
+        </BlogTagsBlock>
+    </div>
+</div>
+
+<!-- اسکریپت اسلایدر -->
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    const totalImages = 75;
+    const images = [];
+    for (let i = 0; i < totalImages; i++) {
+        const num = i.toString().padStart(2, '0');
+        images.push(`https://didactic.ir/Header${num}.jpg`);
+    }
+
+    let currentIndex = 0;
+    let slideInterval;
+    const currentImg = document.getElementById('slide-current');
+    const nextImg = document.getElementById('slide-next');
+    const progressBar = document.getElementById('slider-progress-bar');
+
+    function startTimer() {
+        clearTimeout(slideInterval);
+        const duration = currentIndex === 0 ? 19000 : 8000;
+        
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        void progressBar.offsetWidth;
+        progressBar.style.transition = `width ${duration}ms linear`;
+        progressBar.style.width = '100%';
+
+        slideInterval = setTimeout(() => {
+            nextSlide();
+        }, duration);
+    }
+
+    function goToSlide(index) {
+        if (index === currentIndex) return;
+        
+        nextImg.src = images[index];
+        nextImg.classList.add('active');
+        
+        setTimeout(() => {
+            currentIndex = index;
+            currentImg.src = images[currentIndex];
+            nextImg.classList.remove('active');
+            preloadImages();
+            startTimer();
+        }, 600);
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % totalImages;
+        goToSlide(nextIndex);
+    }
+
+    function prevSlide() {
+        const prevIndex = (currentIndex - 1 + totalImages) % totalImages;
+        goToSlide(prevIndex);
+    }
+
+    function preloadImages() {
+        const nextIdx = (currentIndex + 1) % totalImages;
+        const prevIdx = (currentIndex - 1 + totalImages) % totalImages;
+        new Image().src = images[nextIdx];
+        new Image().src = images[prevIdx];
+    }
+
+    currentImg.src = images[0];
+    preloadImages();
+    startTimer();
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+        nextSlide();
+    });
+    
+    document.getElementById('btn-prev').addEventListener('click', () => {
+        prevSlide();
+    });
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const slider = document.getElementById('premium-slider');
+    
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
