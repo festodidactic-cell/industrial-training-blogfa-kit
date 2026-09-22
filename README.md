@@ -92,3 +92,7 @@ Individual files from the `content` directory can then be inserted into BLOGFA p
 Some components reference externally hosted images and website URLs. Those URLs can be replaced without modifying the overall layout.
 
 The project intentionally avoids large JavaScript frameworks so that the templates remain suitable for lightweight BLOGFA environments.
+
+## License
+
+This project is released under the MIT License.
